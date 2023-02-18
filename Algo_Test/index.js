@@ -14,8 +14,8 @@
 
 // Your task:
 // To write a reverse (arr, k) function that takes 'arr[]' and 'K' as input and modifies the array into place.
-// let arr = [1,2,3,4,5]
-let arr = [5, 6, 8, 9]
+let arr = [1, 2, 3, 4, 5]
+// let arr = [5, 6, 8, 9]
 function flipToK(arr, k) {
     let tempStart = []
     let tempEnd = []
@@ -28,6 +28,33 @@ function flipToK(arr, k) {
 }
 
 // console.log(flipToK(arr, 3))
+
+
+function reverse(arr, k) {
+
+    let groupBound = k
+    for (let j = 0; j < arr.length; j += k) {
+        if (arr.length - j < k) {
+            for (let i = 0; i < (arr.length - j) / 2; i++) {
+                const tmp = arr[j + i];
+                arr[j + i] = arr[j + i]
+                arr[j + i] = arr[j + (arr.length - j) - 1 - i]
+                arr[j + (arr.length - j) - 1 - i] = tmp
+            }
+        } else {
+
+            for (let i = 0; i < k / 2; i++) {
+                const tmp = arr[j + i];
+                arr[j + i] = arr[j + k - 1 - i]
+                arr[j + k - 1 - i] = tmp
+            }
+        }
+    }
+    return arr
+}
+
+arr = reverse(arr, 3)
+// console.log(arr);
 // =======================================================================================
 
 // Find the smallest positive element, which given sorted array doesn't contain. All elements of an array are sorted
@@ -60,8 +87,8 @@ function findFirstMissing(array, start, fin) {
 }
 
 let array = [1, 2, 3, 6, 31]
-console.log(findFirstMissing(array, 1, array.length));
-=====================================================================
+// console.log(findFirstMissing(array, 1, array.length));
+// =====================================================================
 // function coverDistance(n) {
 //     if (n == 1) return 1;
 //     if (n == 2) return 2;
@@ -69,7 +96,7 @@ console.log(findFirstMissing(array, 1, array.length));
 //     return coverDistance(n - 1) + coverDistance(n - 2 ) + coverDistance(n - 3);
 // }
 // console.log(coverDistance(4));
-===========================================================================
+// ===========================================================================
 let string_Sequence = "(()()";
 
 function validate(string_Sequence) {
@@ -93,6 +120,6 @@ function validate(string_Sequence) {
     }
     return (arr.length == 0);
 }
-    console.log(validate(string_Sequence));
+// console.log(validate(string_Sequence));
 
-Эту задачу можно вообще решить просто: исходя из условия, нам достаточно выяснить, равна ли сумма открывающих сумме закрывающих скобок. В случае, если равна, то true, иначе false. Но мне кажется, что здесь просто некорректное само условие.
+// Эту задачу можно вообще решить просто: исходя из условия, нам достаточно выяснить, равна ли сумма открывающих сумме закрывающих скобок.В случае, если равна, то true, иначе false.Но мне кажется, что здесь просто некорректное само условие.
