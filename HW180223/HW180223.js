@@ -3,13 +3,17 @@ function calculateCost(start, end) {
     let border = 13;
     let leftPart = border - start;
     let rightPart = end - border;
+
     if (end < border) {
         cost = 1
-    } else {
+    } else if (border <= end) {
         if (leftPart > rightPart) {
             cost = 1;
         } else cost = 2;
+    } else if (start > border) {
+        cost = 2
     }
+    console.log(cost)
     return cost
 }
 
@@ -35,7 +39,7 @@ function maxBenefit(arr) {
     console.log(itemsArray) // вывод полученного массива заявок
     let sumOfCosts = 0;
     itemsArray.forEach(elem => {
-        sumOfCosts += calculateCost(elem) // считаем суммарную стоимость заявок
+        sumOfCosts += calculateCost(elem[0], elem[1]) // считаем суммарную стоимость заявок
     })
     return sumOfCosts
 }
