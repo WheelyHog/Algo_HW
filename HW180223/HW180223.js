@@ -46,4 +46,3 @@ function maxBenefit(arr) {
 
 console.log("Суммарная стоимость:" + maxBenefit(arrayOfItems))
 
-
